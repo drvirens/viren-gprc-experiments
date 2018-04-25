@@ -1,122 +1,134 @@
 #!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6
 
 import subprocess
-import sys
 
 
 class c_proto:
-	def __init__(self):
-		print("__init__")
+    def __init__(self):
+        print("__init__")
 
-		self.is_protoc_installed = False
-		self.is_min_protoc_ver = False
-		self.version = ""
+        self.is_protoc_installed = False
+        self.is_min_protoc_ver = False
+        self.version = ""
 
+    def quit(self):
+        sys.exit()
 
-	def quit(self):
-		sys.exit()
+    def debug_print(self, str):
+        print(str)
 
+    def has_protoc(self):
+        self.debug_print("has_protoc")
 
-	def debug_print(self, str):
-		print(str)
+        str_cmd_output = ""
+        try:
+            raw_cmd_output = subprocess.check_output(["protoc"], stderr=subprocess.DEVNULL)
+            str_cmd_output = raw_cmd_output.decode("utf-8")
+            if len(str_cmd_output) > 6:
+                self.debug_print("aha - found protoc")
+                self.is_protoc_installed = True
+            else:
+                self.quit()
 
+        except subprocess.CalledProcessError as exception:
+            print("error: protoc not found")
+            self.is_protoc_installed = False
+            self.quit()
 
-	def has_protoc(self):
-		self.debug_print("has_protoc")
+        return self.is_protoc_installed
 
-		str_cmd_output = ""
-		try:
-			raw_cmd_output = subprocess.check_output(["protoc"], stderr=subprocess.DEVNULL)
-			str_cmd_output = raw_cmd_output.decode("utf-8")
-			if len(str_cmd_output) > 6:
-				self.debug_print("aha - found protoc")
-				self.is_protoc_installed = True
-			else:
-				self.quit()
+    def is_protoc_above_expected_version(self):
+        self.debug_print("is_protoc_above_expected_version")
 
-		except subprocess.CalledProcessError as exception:
-			print("error: protoc not found")
-			self.is_protoc_installed = False
-			self.quit()
+        try:
+            raw_cmd_output = subprocess.check_output(["protoc", "--version"], stderr=subprocess.DEVNULL)
+            str_cmd_output = raw_cmd_output.decode("utf-8")
+            if len(str_cmd_output) > 6:
+                self.debug_print("version of protoc: " + str_cmd_output)
 
-		return self.is_protoc_installed
+                tokens = str_cmd_output.split()
+                protoc_version = tokens[1]
 
+                if protoc_version.startswith("3."):
+                    self.is_min_protoc_ver = True
+                    self.debug_print("Has min expected protoc version")
 
-	def is_protoc_above_expected_version(self):
-		self.debug_print("is_protoc_above_expected_version")
+            else:
+                self.quit()
 
-		str_cmd_output = ""
-		try:
-			raw_cmd_output = subprocess.check_output(["protoc", "--version"], stderr=subprocess.DEVNULL)
-			str_cmd_output = raw_cmd_output.decode("utf-8")
-			if len(str_cmd_output) > 6:
-				self.debug_print("version of protoc: " + str_cmd_output)
+        except subprocess.CalledProcessError as exception:
+            self.debug_print("error: protoc not found")
+            self.is_min_protoc_ver = False
+            self.quit()
 
-				tokens = str_cmd_output.split()
-				protoc_version = tokens[1]
+        return self.is_min_protoc_ver
 
-				if protoc_version.startswith("3."):
-					self.is_min_protoc_ver = True
-					self.debug_print("Has min expected protoc version")
+    def generate_message_classes(self):
+        """ generate protoc classes
 
-			else:
-				self.quit()
+        protoc  -I=./ --cpp_out=./testGrpc_Router/gen ./proto/router.proto
+        """
 
-		except subprocess.CalledProcessError as exception:
-			self.debug_print("error: protoc not found")
-			self.is_min_protoc_ver = False
-			self.quit()
+        self.debug_print("generate_message_classes")
 
-		return self.is_min_protoc_ver
+        try:
+            srcroot = "${SRCROOT}"
+            self.debug_print(srcroot)
 
+            raw_cmd_output = subprocess.run(["protoc", "-I=./",
+                                             "--cpp_out=./testGrpc_Router/gen/message",
+                                             "./proto/router.proto"])
+        except subprocess.CalledProcessError as exception:
+            self.debug_print("ERROR: could not execute cmd")
+        except:
+            self.debug_print("some other error")
 
-	def generate(self):
-		""" generate protoc classes
+    def generate_service_classes(self):
+        """ generate protoc classes
 
-		protoc  -I=./ --cpp_out=./testGrpc_Router/gen ./proto/router.proto
-		"""
-        
-		self.debug_print("generate")
+        protoc  -I=./ --cpp_out=./testGrpc_Router/gen ./proto/router.proto
+        """
 
-		try:
-			srcroot = "${SRCROOT}"
-			self.debug_print(srcroot)
+        self.debug_print("generate_service_classes")
 
+        try:
+            srcroot = "${SRCROOT}"
+            self.debug_print(srcroot)
 
-			raw_cmd_output = subprocess.run(["protoc", "-I=./", "--cpp_out=./testGrpc_Router/gen", "./proto/router.proto"])
-			#raw_cmd_output = subprocess.run(["protoc", "-I=${PROJECT_DIR}", "--cpp_out=./testGrpc_Router/gen", "./proto/router.proto"])
-		except subprocess.CalledProcessError as exception:
-			self.debug_print("ERROR: could not execute cmd")
-		except:
-			self.debug_print("some other error")
-		
+            raw_cmd_output = subprocess.run(["protoc", "-I=./",
+                                             "--grpc_out=./testGrpc_Router/gen/service",
+                                             "--plugin=protoc-gen-grpc=`which grpc_cpp_plugin`",
+                                             "./proto/router.proto"])
+        except subprocess.CalledProcessError as exception:
+            self.debug_print("ERROR: could not execute cmd")
+        except:
+            self.debug_print("some other error")
 
-	def run(self):
-		""" Run protoc command
-		
-		Generate proto files. Command is like below:
-			> protoc -I=$SRC_DIR --cpp_out=$DST_DIR $SRC_DIR/addressbook.proto
+    def run(self):
+        """ Run protoc command
 
-		More details at:
-		https://developers.google.com/protocol-buffers/docs/cpptutorial
-		"""
+        Generate proto files. Command is like below:
+            > protoc -I=$SRC_DIR --cpp_out=$DST_DIR $SRC_DIR/addressbook.proto
 
-		self.debug_print("run")
-		if self.has_protoc():
-			if self.is_protoc_above_expected_version():
-				self.generate()
-		else:
-			pass
+        More details at:
+        https://developers.google.com/protocol-buffers/docs/cpptutorial
+        """
 
+        self.debug_print("run")
+        if self.has_protoc():
+            if self.is_protoc_above_expected_version():
+                self.generate_message_classes()
+                self.generate_service_classes()
+        else:
+            pass
 
 
 def main():
-	print("boot start")
-	obj_proto = c_proto()
-	obj_proto.run()
-	print("boot end")
-
+    print("boot start")
+    obj_proto = c_proto()
+    obj_proto.run()
+    print("boot end")
 
 
 if __name__ == "__main__":
-	main()
+    main()

@@ -11,6 +11,9 @@
 		11B0A860208FC8D700BC7A87 /* libprotobuf.15.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B0A85D208FC8D700BC7A87 /* libprotobuf.15.dylib */; };
 		11B0A861208FC8D700BC7A87 /* libgrpc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B0A85E208FC8D700BC7A87 /* libgrpc.dylib */; };
 		11B0A862208FC8D700BC7A87 /* libgrpc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B0A85F208FC8D700BC7A87 /* libgrpc++.dylib */; };
+		11B0A8712090791000BC7A87 /* RouterServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11B0A86F2090791000BC7A87 /* RouterServer.cpp */; };
+		11B0A88E2090852500BC7A87 /* router.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 11B0A8882090852500BC7A87 /* router.grpc.pb.cc */; };
+		11B0A88F2090852500BC7A87 /* router.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 11B0A88C2090852500BC7A87 /* router.pb.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +36,12 @@
 		11B0A85F208FC8D700BC7A87 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		11B0A86A2090346300BC7A87 /* router.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = router.proto; sourceTree = "<group>"; };
 		11B0A86D20903FE700BC7A87 /* protoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = protoc; sourceTree = "<group>"; };
+		11B0A86F2090791000BC7A87 /* RouterServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RouterServer.cpp; sourceTree = "<group>"; };
+		11B0A8702090791000BC7A87 /* RouterServer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RouterServer.hpp; sourceTree = "<group>"; };
+		11B0A8882090852500BC7A87 /* router.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = router.grpc.pb.cc; sourceTree = "<group>"; };
+		11B0A8892090852500BC7A87 /* router.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = router.grpc.pb.h; sourceTree = "<group>"; };
+		11B0A88C2090852500BC7A87 /* router.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = router.pb.cc; sourceTree = "<group>"; };
+		11B0A88D2090852500BC7A87 /* router.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = router.pb.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +80,10 @@
 		11B0A854208FC89400BC7A87 /* testGrpc_Router */ = {
 			isa = PBXGroup;
 			children = (
+				11B0A8722090796800BC7A87 /* gen */,
 				11B0A855208FC89400BC7A87 /* main.cpp */,
+				11B0A86F2090791000BC7A87 /* RouterServer.cpp */,
+				11B0A8702090791000BC7A87 /* RouterServer.hpp */,
 			);
 			path = testGrpc_Router;
 			sourceTree = "<group>";
@@ -98,6 +110,66 @@
 			isa = PBXGroup;
 			children = (
 				11B0A86A2090346300BC7A87 /* router.proto */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+		11B0A8722090796800BC7A87 /* gen */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A8772090806900BC7A87 /* proto */,
+			);
+			path = gen;
+			sourceTree = "<group>";
+		};
+		11B0A8772090806900BC7A87 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A87B209082AE00BC7A87 /* gen */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+		11B0A87B209082AE00BC7A87 /* gen */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A88A2090852500BC7A87 /* message */,
+				11B0A8862090852500BC7A87 /* service */,
+			);
+			name = gen;
+			path = testGrpc_Router/gen;
+			sourceTree = SOURCE_ROOT;
+		};
+		11B0A8862090852500BC7A87 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A8872090852500BC7A87 /* proto */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		11B0A8872090852500BC7A87 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A8882090852500BC7A87 /* router.grpc.pb.cc */,
+				11B0A8892090852500BC7A87 /* router.grpc.pb.h */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+		11B0A88A2090852500BC7A87 /* message */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A88B2090852500BC7A87 /* proto */,
+			);
+			path = message;
+			sourceTree = "<group>";
+		};
+		11B0A88B2090852500BC7A87 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A88C2090852500BC7A87 /* router.pb.cc */,
+				11B0A88D2090852500BC7A87 /* router.pb.h */,
 			);
 			path = proto;
 			sourceTree = "<group>";
@@ -175,7 +247,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B0A88E2090852500BC7A87 /* router.grpc.pb.cc in Sources */,
+				11B0A88F2090852500BC7A87 /* router.pb.cc in Sources */,
 				11B0A856208FC89400BC7A87 /* main.cpp in Sources */,
+				11B0A8712090791000BC7A87 /* RouterServer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +372,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F38H382JLK;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"\"$(SRCROOT)/testGrpc_Router/gen/message\"",
+					"\"$(SRCROOT)/testGrpc_Router/gen/service\"",
+				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -308,7 +387,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F38H382JLK;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"\"$(SRCROOT)/testGrpc_Router/gen/message\"",
+					"\"$(SRCROOT)/testGrpc_Router/gen/service\"",
+				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

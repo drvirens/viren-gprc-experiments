@@ -2,6 +2,11 @@ syntax = "proto3";
 
 package route;
 
+service VSStoreDB {
+    rpc Store(StoreRequest) returns (StoreResponse) {}
+    rpc Get(GetRequest) returns (GetResponse) {}
+}
+
 message StoreRequest {
     string key = 1;
     string value = 2;
@@ -19,7 +24,3 @@ message GetResponse {
     string value = 1;
 }
 
-service StoreDB {
-    rpc Store(StoreRequest) returns (StoreResponse) {}
-    rpc Get(GetRequest) returns (GetResponse) {}
-}
