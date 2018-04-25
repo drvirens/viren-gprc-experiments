@@ -195,13 +195,13 @@ void AddDescriptorsImpl() {
       "est\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\" \n\rStore"
       "Response\022\017\n\007message\030\001 \001(\t\"\031\n\nGetRequest\022"
       "\013\n\003key\030\001 \001(\t\"\034\n\013GetResponse\022\r\n\005value\030\001 \001"
-      "(\t2o\n\007StoreDB\0224\n\005Store\022\023.route.StoreRequ"
-      "est\032\024.route.StoreResponse\"\000\022.\n\003Get\022\021.rou"
-      "te.GetRequest\032\022.route.GetResponse\"\000b\006pro"
-      "to3"
+      "(\t2q\n\tVSStoreDB\0224\n\005Store\022\023.route.StoreRe"
+      "quest\032\024.route.StoreResponse\"\000\022.\n\003Get\022\021.r"
+      "oute.GetRequest\032\022.route.GetResponse\"\000b\006p"
+      "roto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 283);
+      descriptor, 285);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto/router.proto", &protobuf_RegisterTypes);
 }
