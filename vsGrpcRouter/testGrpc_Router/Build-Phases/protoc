@@ -75,6 +75,7 @@ class c_proto:
 
 		protoc  -I=./ --cpp_out=./testGrpc_Router/gen ./proto/router.proto
 		"""
+        
 		self.debug_print("generate")
 
 		try:
@@ -117,40 +118,5 @@ def main():
 
 
 
-
 if __name__ == "__main__":
 	main()
-
-
-
-#import subprocess
-#import sys
-#
-#print("protoc - start")
-#
-#cmd_output = subprocess.check_output(["protoc", "--version"])
-#print(cmd_output)
-#
-#spiltted = cmd_output.split()
-#print(spiltted)
-#
-## version must be 3.x or greater
-#protoc_version = spiltted[1]
-#version = protoc_version.decode("utf-8")
-#
-#print(version)
-#
-#if version.startswith("3"):
-#    print("you are on 3.x good")
-#else:
-#    print("bruh you need at least 3.0")
-#    sys.exit()
-#
-#
-#def boot():
-#    pass
-#
-#if __name__ == "__main__":
-#    boot()
-#
-#print("protoc - end")

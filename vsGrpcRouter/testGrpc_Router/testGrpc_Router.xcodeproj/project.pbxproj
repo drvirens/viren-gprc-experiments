@@ -33,7 +33,6 @@
 		11B0A85F208FC8D700BC7A87 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		11B0A86A2090346300BC7A87 /* router.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = router.proto; sourceTree = "<group>"; };
 		11B0A86D20903FE700BC7A87 /* protoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = protoc; sourceTree = "<group>"; };
-		11B0A86E20906A0E00BC7A87 /* generate_proto.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = generate_proto.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +89,6 @@
 		11B0A8672090346300BC7A87 /* Build-Phases */ = {
 			isa = PBXGroup;
 			children = (
-				11B0A86E20906A0E00BC7A87 /* generate_proto.py */,
 				11B0A86D20903FE700BC7A87 /* protoc */,
 			);
 			path = "Build-Phases";
