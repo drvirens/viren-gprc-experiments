@@ -1,0 +1,52 @@
+services:
+
+- buy
+    - get_feed
+
+- sell
+    - list_product
+    - mark_sold
+
+- product
+    - get_details
+    - mark_sold
+
+- redis-product-cache
+    - add_item(latitude, longitude)
+    - get_all_items(latitude, longitude, radius)
+    - mark_sold
+
+
+- recommend
+    - get_recommendations(product_id)
+
+- rate
+    - rate(stars: int)
+
+- review
+    - set_review()
+
+- user_account
+    - add_user_account(new_user_account)
+    - delete_user_account()
+    - update_user_account()
+    - get_user_account()
+
+- profile
+
+- order
+- ship
+
+
+- 
+
+
+use cases:
+
+use case: show items near me
+
+ client ---> elb ---> gateway ---> buy ---> redis-product-cache
+                                    |
+                                    +-----> recommend 
+                                    |
+                                    +-----> 

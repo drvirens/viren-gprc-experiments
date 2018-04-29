@@ -1,0 +1,58 @@
+
+
+microservice patterns:
+
+- backends for frontends: one backend service for each client type. e.g. mobile, web, iot etc
+- ambassador: client side proxy to remote service. circuit breaking, retry, monitoring, security
+- gateway aggregation: aggregates requests to multiple individual microservices into a single request, reducing chattiness between consumers and services.
+- Gateway Offloading: enables each microservice to offload shared service functionality, such as the use of SSL certificates, to an API gateway.
+
+- Gateway Routing pattern: Route requests to multiple services using a single endpoint. This pattern is useful when you wish to expose multiple services on a single endpoint and route to the appropriate service based on the request.
+Place a gateway in front of a set of applications, services, or deployments. Use application Layer 7 routing to route the request to the appropriate instances.
+
+server {
+    listen 80;
+    server_name domain.com;
+
+    location /app1 {
+        proxy_pass http://10.0.3.10:80;
+    }
+
+    location /app2 {
+        proxy_pass http://10.0.3.20:80;
+    }
+
+    location /app3 {
+        proxy_pass http://10.0.3.30:80;
+    }
+}
+
+- Bulkhead pattern: Isolate elements of an application into pools so that if one fails, the others will continue to function.
+
+This pattern is named Bulkhead because it resembles the sectioned partitions of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
+
+Partition service instances into different groups, based on consumer load and availability requirements. This design helps to isolate failures, and allows you to sustain service functionality for some consumers, even during a failure.
+example:
+The following Kubernetes configuration file creates an isolated container to run a single service, with its own CPU and memory resources and limits.
+
+//yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: drone-management
+spec:
+  containers:
+  - name: drone-management-container
+    image: drone-service
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "1"
+
+
+
+
+

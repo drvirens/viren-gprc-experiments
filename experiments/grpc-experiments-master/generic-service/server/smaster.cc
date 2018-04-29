@@ -90,13 +90,10 @@ static void run()
 
   ServerBuilder builder;
   builder.AddListeningPort(server_address,InsecureServerCredentials());
-
   builder.RegisterService(&master);
-
 
   builder.RegisterAsyncGenericService(bridge);
   bridge.setCompletionQueue(builder.AddCompletionQueue());
-
 
   unique_ptr<Server> server = builder.BuildAndStart();
   cout << "Server listening on " << server_address << endl;

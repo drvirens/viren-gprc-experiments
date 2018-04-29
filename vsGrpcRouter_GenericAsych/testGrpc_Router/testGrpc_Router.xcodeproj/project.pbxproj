@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1108704D2095A22900E7C30B /* CCallData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1108704B2095A22900E7C30B /* CCallData.cpp */; };
+		11B0A856208FC89400BC7A87 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11B0A855208FC89400BC7A87 /* main.cpp */; };
+		11B0A860208FC8D700BC7A87 /* libprotobuf.15.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B0A85D208FC8D700BC7A87 /* libprotobuf.15.dylib */; };
+		11B0A861208FC8D700BC7A87 /* libgrpc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B0A85E208FC8D700BC7A87 /* libgrpc.dylib */; };
+		11B0A862208FC8D700BC7A87 /* libgrpc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B0A85F208FC8D700BC7A87 /* libgrpc++.dylib */; };
+		11B0A8712090791000BC7A87 /* RouterServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11B0A86F2090791000BC7A87 /* RouterServer.cpp */; };
+		11B0A88E2090852500BC7A87 /* router.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 11B0A8882090852500BC7A87 /* router.grpc.pb.cc */; };
+		11B0A88F2090852500BC7A87 /* router.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 11B0A88C2090852500BC7A87 /* router.pb.cc */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		11B0A850208FC89400BC7A87 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1108704B2095A22900E7C30B /* CCallData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CCallData.cpp; sourceTree = "<group>"; };
+		1108704C2095A22900E7C30B /* CCallData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CCallData.hpp; sourceTree = "<group>"; };
+		11B0A852208FC89400BC7A87 /* testGrpc_Router */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = testGrpc_Router; sourceTree = BUILT_PRODUCTS_DIR; };
+		11B0A855208FC89400BC7A87 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		11B0A85D208FC8D700BC7A87 /* libprotobuf.15.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.15.dylib; path = ../../../../../usr/local/lib/libprotobuf.15.dylib; sourceTree = "<group>"; };
+		11B0A85E208FC8D700BC7A87 /* libgrpc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgrpc.dylib; path = ../../../../../usr/local/lib/libgrpc.dylib; sourceTree = "<group>"; };
+		11B0A85F208FC8D700BC7A87 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
+		11B0A86A2090346300BC7A87 /* router.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = router.proto; sourceTree = "<group>"; };
+		11B0A86D20903FE700BC7A87 /* protoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = protoc; sourceTree = "<group>"; };
+		11B0A86F2090791000BC7A87 /* RouterServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RouterServer.cpp; sourceTree = "<group>"; };
+		11B0A8702090791000BC7A87 /* RouterServer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RouterServer.hpp; sourceTree = "<group>"; };
+		11B0A8882090852500BC7A87 /* router.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = router.grpc.pb.cc; sourceTree = "<group>"; };
+		11B0A8892090852500BC7A87 /* router.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = router.grpc.pb.h; sourceTree = "<group>"; };
+		11B0A88C2090852500BC7A87 /* router.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = router.pb.cc; sourceTree = "<group>"; };
+		11B0A88D2090852500BC7A87 /* router.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = router.pb.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11B0A84F208FC89400BC7A87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11B0A860208FC8D700BC7A87 /* libprotobuf.15.dylib in Frameworks */,
+				11B0A861208FC8D700BC7A87 /* libgrpc.dylib in Frameworks */,
+				11B0A862208FC8D700BC7A87 /* libgrpc++.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11B0A849208FC89400BC7A87 = {
+			isa = PBXGroup;
+			children = (
+				11B0A8672090346300BC7A87 /* Build-Phases */,
+				11B0A8692090346300BC7A87 /* proto */,
+				11B0A854208FC89400BC7A87 /* testGrpc_Router */,
+				11B0A853208FC89400BC7A87 /* Products */,
+				11B0A85C208FC8D700BC7A87 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		11B0A853208FC89400BC7A87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A852208FC89400BC7A87 /* testGrpc_Router */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11B0A854208FC89400BC7A87 /* testGrpc_Router */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A8722090796800BC7A87 /* gen */,
+				11B0A855208FC89400BC7A87 /* main.cpp */,
+				11B0A86F2090791000BC7A87 /* RouterServer.cpp */,
+				11B0A8702090791000BC7A87 /* RouterServer.hpp */,
+				1108704B2095A22900E7C30B /* CCallData.cpp */,
+				1108704C2095A22900E7C30B /* CCallData.hpp */,
+			);
+			path = testGrpc_Router;
+			sourceTree = "<group>";
+		};
+		11B0A85C208FC8D700BC7A87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A85E208FC8D700BC7A87 /* libgrpc.dylib */,
+				11B0A85F208FC8D700BC7A87 /* libgrpc++.dylib */,
+				11B0A85D208FC8D700BC7A87 /* libprotobuf.15.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		11B0A8672090346300BC7A87 /* Build-Phases */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A86D20903FE700BC7A87 /* protoc */,
+			);
+			path = "Build-Phases";
+			sourceTree = "<group>";
+		};
+		11B0A8692090346300BC7A87 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A86A2090346300BC7A87 /* router.proto */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+		11B0A8722090796800BC7A87 /* gen */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A8772090806900BC7A87 /* proto */,
+			);
+			path = gen;
+			sourceTree = "<group>";
+		};
+		11B0A8772090806900BC7A87 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A87B209082AE00BC7A87 /* gen */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+		11B0A87B209082AE00BC7A87 /* gen */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A88A2090852500BC7A87 /* message */,
+				11B0A8862090852500BC7A87 /* service */,
+			);
+			name = gen;
+			path = testGrpc_Router/gen;
+			sourceTree = SOURCE_ROOT;
+		};
+		11B0A8862090852500BC7A87 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A8872090852500BC7A87 /* proto */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		11B0A8872090852500BC7A87 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A8882090852500BC7A87 /* router.grpc.pb.cc */,
+				11B0A8892090852500BC7A87 /* router.grpc.pb.h */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+		11B0A88A2090852500BC7A87 /* message */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A88B2090852500BC7A87 /* proto */,
+			);
+			path = message;
+			sourceTree = "<group>";
+		};
+		11B0A88B2090852500BC7A87 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				11B0A88C2090852500BC7A87 /* router.pb.cc */,
+				11B0A88D2090852500BC7A87 /* router.pb.h */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11B0A851208FC89400BC7A87 /* testGrpc_Router */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11B0A859208FC89400BC7A87 /* Build configuration list for PBXNativeTarget "testGrpc_Router" */;
+			buildPhases = (
+				11B0A86520902F2C00BC7A87 /* ShellScript */,
+				11B0A84E208FC89400BC7A87 /* Sources */,
+				11B0A84F208FC89400BC7A87 /* Frameworks */,
+				11B0A850208FC89400BC7A87 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = testGrpc_Router;
+			productName = testGrpc_Router;
+			productReference = 11B0A852208FC89400BC7A87 /* testGrpc_Router */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11B0A84A208FC89400BC7A87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Virendra Shakya";
+				TargetAttributes = {
+					11B0A851208FC89400BC7A87 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 11B0A84D208FC89400BC7A87 /* Build configuration list for PBXProject "testGrpc_Router" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 11B0A849208FC89400BC7A87;
+			productRefGroup = 11B0A853208FC89400BC7A87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11B0A851208FC89400BC7A87 /* testGrpc_Router */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11B0A86520902F2C00BC7A87 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PROJECT_DIR}/Build-Phases/protoc\"\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11B0A84E208FC89400BC7A87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11B0A88E2090852500BC7A87 /* router.grpc.pb.cc in Sources */,
+				1108704D2095A22900E7C30B /* CCallData.cpp in Sources */,
+				11B0A88F2090852500BC7A87 /* router.pb.cc in Sources */,
+				11B0A856208FC89400BC7A87 /* main.cpp in Sources */,
+				11B0A8712090791000BC7A87 /* RouterServer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		11B0A857208FC89400BC7A87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		11B0A858208FC89400BC7A87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		11B0A85A208FC89400BC7A87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = F38H382JLK;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"\"$(SRCROOT)/testGrpc_Router/gen/message\"",
+					"\"$(SRCROOT)/testGrpc_Router/gen/service\"",
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		11B0A85B208FC89400BC7A87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F38H382JLK;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"\"$(SRCROOT)/testGrpc_Router/gen/message\"",
+					"\"$(SRCROOT)/testGrpc_Router/gen/service\"",
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11B0A84D208FC89400BC7A87 /* Build configuration list for PBXProject "testGrpc_Router" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11B0A857208FC89400BC7A87 /* Debug */,
+				11B0A858208FC89400BC7A87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11B0A859208FC89400BC7A87 /* Build configuration list for PBXNativeTarget "testGrpc_Router" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11B0A85A208FC89400BC7A87 /* Debug */,
+				11B0A85B208FC89400BC7A87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 11B0A84A208FC89400BC7A87 /* Project object */;
+}
