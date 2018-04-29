@@ -46,7 +46,7 @@ void RouterServer::HandleIncomingRpcRequests() {
     //be memory address of CCallData instance : this pointer
     //Return value of Next should always be checked. This return
     //value tells us whether there is any kind of event or cq_ is shutting down.
-    bool ret = cq_->Next(&tag, & ok);
+    bool ret = cq_->Next(&tag, &ok);
     if (ret) {
       std::cout << "cq_->Next returned true" << std::endl;
     }

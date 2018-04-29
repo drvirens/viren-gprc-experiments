@@ -14,9 +14,10 @@
 int main(int argc, const char * argv[]) {
     std::cout << "Hello, World!\n";
   
-  
-    RouterClient client(grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials()));
-    std::thread the_thread = std::thread(&RouterClient::AsyncCompleteRpc, &client);
+    RouterClient client(grpc::CreateChannel("localhost:50051",
+                              grpc::InsecureChannelCredentials()));
+    std::thread the_thread = std::thread(&RouterClient::AsyncCompleteRpc,
+                                          &client);
   
     for (int i = 0; i < 100; i++) {
       std::stringstream k;
