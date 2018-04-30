@@ -15,3 +15,20 @@ alpine              3.7                 3fd9065eaf02        3 months ago        
 
     docker run -d -p 6379:6379 --name name_redis_v_4_0 c5355f8853e4
 </code>
+
+<br>
+so fundamentally 2 commands to start the redis server:<br>
+
+<br>
+docker build -t tag_redis_v_4_0 .
+<br>
+docker run -d -p 6379:6379 --name name_redis_v_4_0 c5355f8853e4
+<br>
+
+test: <br>
+➜  ~ redis-cli<br>
+127.0.0.1:6379> set virenkey virenvalue<br>
+OK<br>
+127.0.0.1:6379> get virenkey<br>
+"virenvalue"<br>
+127.0.0.1:6379><br><br>
