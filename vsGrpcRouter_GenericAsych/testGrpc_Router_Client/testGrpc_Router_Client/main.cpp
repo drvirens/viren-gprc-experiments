@@ -13,13 +13,25 @@
 
 int main(int argc, const char * argv[]) {
     std::cout << "Hello, World!\n";
+
+    bool usenginxproxy = true;
+    std::stringstream ss;
+    std::string local_host;
+    int port;
+    if (usenginxproxy) {
+      port = 80; //80?
+    } else {
+      port = 50051;
+    }
+    ss << "localhost:" << port;
+    local_host = ss.str();
   
-    RouterClient client(grpc::CreateChannel("localhost:50051",
+    RouterClient client(grpc::CreateChannel(local_host,
                               grpc::InsecureChannelCredentials()));
     std::thread the_thread = std::thread(&RouterClient::AsyncCompleteRpc,
                                           &client);
   
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 1; i++) {
       std::stringstream k;
       k << "keY_" << i;
       std::string key = k.str();

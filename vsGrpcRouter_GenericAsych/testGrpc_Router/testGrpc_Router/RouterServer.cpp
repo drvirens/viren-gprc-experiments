@@ -28,7 +28,6 @@ using route::VSStoreDB;
 
 
 RouterServer::RouterServer() {
-
 }
 
 RouterServer::~RouterServer() {
@@ -41,11 +40,14 @@ void RouterServer::HandleIncomingRpcRequests() {
   void* tag;
   bool ok;
   while(true) {
+    //
     //block waiting to read the next event from the completion queue.
     //the event is uniquely identified by its tag - which here is gonna
     //be memory address of CCallData instance : this pointer
     //Return value of Next should always be checked. This return
-    //value tells us whether there is any kind of event or cq_ is shutting down.
+    //value tells us whether there is any kind of event or cq_ is
+    //shutting down.
+    //
     bool ret = cq_->Next(&tag, &ok);
     if (ret) {
       std::cout << "cq_->Next returned true" << std::endl;
@@ -64,7 +66,6 @@ void RouterServer::RunServer() {
     grpc_init();
     gpr_set_log_verbosity(GPR_LOG_SEVERITY_INFO);
     grpc_tracer_set_enabled("all", 1);
-
 
     std::string server_address("0.0.0.0:50051");
     

@@ -1,0 +1,47 @@
+
+sts@Yudi:~/docker$ sudo docker ps -as
+
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                    PORTS               NAMES                  SIZE
+78479ffeba5c        ubuntu              "/bin/bash"         42 hours ago        Exited (0) 42 hours ago                       sharp_wescoff          81 B (virtual 187.7 MB)
+0bd2b54678c7        training/webapp     "python app.py"     5 days ago          Exited (0) 5 days ago                         backstabbing_ritchie   0 B (virtual 323.7 MB)
+0adbc74a3803        training/webapp     "python app.py"     5 days ago          Exited (143) 5 days ago                       drunk_feynman          0 B (virtual 323.7 MB)
+
+
+=======
+
+
+First, remove the container names:
+
+sudo docker rm nginxgrpc1.13.12
+docker rm <NAMES>
+
+
+Second, remove the container
+docker rmi <IMAGE>
+sudo docker rmi training/webapp
+
+result:
+sudo docker rmi training/webapp  
+  Untagged: training/webapp:latest
+  Deleted: 54bb4e8718e8600d78a5d7c62208c2f13c8caf0e4fe73d2bc0e474e93659c0b5
+  Deleted: f74dd040041eb4c032d3025fe38ea85de8075992bdce6789b694a44b20feb8de
+  Deleted: 7cbae69141977b99c44dc6957b032ad50c1379124d62b7d7d05ab7329b42348e
+  Deleted: abb991a4ed5e4cde2d9964aec4cccbe0015ba9cc9838b696e7a32e1ddf4a49bd
+  Deleted: 1952e3bf3d7e8e6a9b1e23bd4142e3c42ff7f4b7925122189704323593fd54ac
+  Deleted: f95ebd363bf27a7546deced7a41a4099334e37a3d2901fa3817e62bb1ade183f
+  Deleted: 20dd0c75901396d41a7b64d551ff04952084cc3947e66c67bae35759c80da338
+  Deleted: 2505b734adda3720799dde5004302f5edb3f2a2ff71438f6488b530b728ba666
+  Deleted: 2ee0b8f351f753f78f1178000ae37616eb5bf241d4ef041b612d58e1fd2aefdc
+  Deleted: 2ce633e3e9c9bd9e8fe7ade5984d7656ec3fc3994f05a97d5490190ef95bce8d
+  Deleted: 98b15185dba7f85308eb0e21196956bba653cf142b36dc08059b3468a01bf35d
+  Deleted: 515565c29c940355ec886c992231c6019a6cffa17ff1d2abdfc844867c9080c5
+  Deleted: 2880a3395eded9b748c94d27767e1e202f8d7cb06f1e40e18d1b1c77687aef77
+
+
+
+
+  Check the continer:
+
+  $ sudo docker ps -as
+  CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                    PORTS               NAMES                  SIZE
+  78479ffeba5c        ubuntu              "/bin/bash"         43 hours ago        Exited (0) 43 hours ago                       sharp_wescoff          81 B (virtual 187.7 MB)
