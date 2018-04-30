@@ -40,15 +40,15 @@ http://127.0.0.1:8080
 
     docker rm name_nginx_v_1_13_12 
 
-    <br>
+    
 
     docker rmi nginx_v_1_13_12
 
-    <br>
+    
 
     docker build -t nginx_v_1_13_12 .
 
-    <br>
+    
 
     docker run --name name_nginx_v_1_13_12 -p 80:80 nginx_v_1_13_12
 
