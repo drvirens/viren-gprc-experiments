@@ -27,3 +27,21 @@ docker run --name vs-nginx-1.13.12 -p 8080:80 virennginx11312
 test:
 <br>
 http://127.0.0.1:8080
+
+
+
+<br>
+<br>
+
+
+<code>
+    <br>
+    docker rm name_nginx_v_1_13_12 
+    <br>
+    docker rmi nginx_v_1_13_12
+    <br>
+    docker build -t nginx_v_1_13_12 .
+    <br>
+    docker run --name name_nginx_v_1_13_12 -p 80:80 nginx_v_1_13_12
+    <br>
+    </code>
