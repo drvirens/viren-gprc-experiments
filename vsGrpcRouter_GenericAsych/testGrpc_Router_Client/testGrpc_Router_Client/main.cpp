@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
     std::string local_host;
     int port;
     if (usenginxproxy) {
-      port = 80; //80?
+      port = 80;
     } else {
       port = 50051;
     }
@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
     std::thread the_thread = std::thread(&RouterClient::AsyncCompleteRpc,
                                           &client);
   
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 10; i++) {
       std::stringstream k;
       k << "keY_" << i;
       std::string key = k.str();
