@@ -1,0 +1,367 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1145304C209838FC006DFE00 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1145304B209838FC006DFE00 /* main.cpp */; };
+		1145307C2098392E006DFE00 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = 1145305E2098392E006DFE00 /* async.c */; };
+		1145307D2098392E006DFE00 /* dict.c in Sources */ = {isa = PBXBuildFile; fileRef = 114530622098392E006DFE00 /* dict.c */; };
+		114530872098392E006DFE00 /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 114530702098392E006DFE00 /* hiredis.c */; };
+		114530882098392E006DFE00 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 114530722098392E006DFE00 /* Makefile */; };
+		114530892098392E006DFE00 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 114530732098392E006DFE00 /* net.c */; };
+		1145308A2098392E006DFE00 /* read.c in Sources */ = {isa = PBXBuildFile; fileRef = 114530752098392E006DFE00 /* read.c */; };
+		1145308B2098392E006DFE00 /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 114530782098392E006DFE00 /* sds.c */; };
+		1145308F20983F70006DFE00 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1145308E20983F70006DFE00 /* CoreFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		11453046209838FC006DFE00 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		11453048209838FC006DFE00 /* test_RedisClient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test_RedisClient; sourceTree = BUILT_PRODUCTS_DIR; };
+		1145304B209838FC006DFE00 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		114530532098392E006DFE00 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		114530562098392E006DFE00 /* ae.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ae.h; sourceTree = "<group>"; };
+		114530592098392E006DFE00 /* libev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libev.h; sourceTree = "<group>"; };
+		1145305A2098392E006DFE00 /* libevent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libevent.h; sourceTree = "<group>"; };
+		1145305B2098392E006DFE00 /* libuv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libuv.h; sourceTree = "<group>"; };
+		1145305C2098392E006DFE00 /* macosx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macosx.h; sourceTree = "<group>"; };
+		1145305E2098392E006DFE00 /* async.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = async.c; sourceTree = "<group>"; };
+		1145305F2098392E006DFE00 /* async.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = async.h; sourceTree = "<group>"; };
+		114530602098392E006DFE00 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		114530622098392E006DFE00 /* dict.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dict.c; sourceTree = "<group>"; };
+		114530632098392E006DFE00 /* dict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dict.h; sourceTree = "<group>"; };
+		1145306F2098392E006DFE00 /* fmacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmacros.h; sourceTree = "<group>"; };
+		114530702098392E006DFE00 /* hiredis.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hiredis.c; sourceTree = "<group>"; };
+		114530712098392E006DFE00 /* hiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hiredis.h; sourceTree = "<group>"; };
+		114530722098392E006DFE00 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		114530732098392E006DFE00 /* net.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = net.c; sourceTree = "<group>"; };
+		114530742098392E006DFE00 /* net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net.h; sourceTree = "<group>"; };
+		114530752098392E006DFE00 /* read.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = read.c; sourceTree = "<group>"; };
+		114530762098392E006DFE00 /* read.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = read.h; sourceTree = "<group>"; };
+		114530772098392E006DFE00 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		114530782098392E006DFE00 /* sds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sds.c; sourceTree = "<group>"; };
+		114530792098392E006DFE00 /* sds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sds.h; sourceTree = "<group>"; };
+		1145307B2098392E006DFE00 /* win32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = win32.h; sourceTree = "<group>"; };
+		1145308E20983F70006DFE00 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11453045209838FC006DFE00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1145308F20983F70006DFE00 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1145303F209838FC006DFE00 = {
+			isa = PBXGroup;
+			children = (
+				1145304A209838FC006DFE00 /* test_RedisClient */,
+				11453049209838FC006DFE00 /* Products */,
+				1145308D20983F70006DFE00 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		11453049209838FC006DFE00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11453048209838FC006DFE00 /* test_RedisClient */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1145304A209838FC006DFE00 /* test_RedisClient */ = {
+			isa = PBXGroup;
+			children = (
+				114530522098392E006DFE00 /* hiredis-0.13.3 */,
+				1145304B209838FC006DFE00 /* main.cpp */,
+			);
+			path = test_RedisClient;
+			sourceTree = "<group>";
+		};
+		114530522098392E006DFE00 /* hiredis-0.13.3 */ = {
+			isa = PBXGroup;
+			children = (
+				114530532098392E006DFE00 /* .gitignore */,
+				114530552098392E006DFE00 /* adapters */,
+				1145305E2098392E006DFE00 /* async.c */,
+				1145305F2098392E006DFE00 /* async.h */,
+				114530602098392E006DFE00 /* CHANGELOG.md */,
+				114530622098392E006DFE00 /* dict.c */,
+				114530632098392E006DFE00 /* dict.h */,
+				1145306F2098392E006DFE00 /* fmacros.h */,
+				114530702098392E006DFE00 /* hiredis.c */,
+				114530712098392E006DFE00 /* hiredis.h */,
+				114530722098392E006DFE00 /* Makefile */,
+				114530732098392E006DFE00 /* net.c */,
+				114530742098392E006DFE00 /* net.h */,
+				114530752098392E006DFE00 /* read.c */,
+				114530762098392E006DFE00 /* read.h */,
+				114530772098392E006DFE00 /* README.md */,
+				114530782098392E006DFE00 /* sds.c */,
+				114530792098392E006DFE00 /* sds.h */,
+				1145307B2098392E006DFE00 /* win32.h */,
+			);
+			path = "hiredis-0.13.3";
+			sourceTree = "<group>";
+		};
+		114530552098392E006DFE00 /* adapters */ = {
+			isa = PBXGroup;
+			children = (
+				114530562098392E006DFE00 /* ae.h */,
+				114530592098392E006DFE00 /* libev.h */,
+				1145305A2098392E006DFE00 /* libevent.h */,
+				1145305B2098392E006DFE00 /* libuv.h */,
+				1145305C2098392E006DFE00 /* macosx.h */,
+			);
+			path = adapters;
+			sourceTree = "<group>";
+		};
+		1145308D20983F70006DFE00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1145308E20983F70006DFE00 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11453047209838FC006DFE00 /* test_RedisClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1145304F209838FC006DFE00 /* Build configuration list for PBXNativeTarget "test_RedisClient" */;
+			buildPhases = (
+				11453044209838FC006DFE00 /* Sources */,
+				11453045209838FC006DFE00 /* Frameworks */,
+				11453046209838FC006DFE00 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = test_RedisClient;
+			productName = test_RedisClient;
+			productReference = 11453048209838FC006DFE00 /* test_RedisClient */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11453040209838FC006DFE00 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Virendra Shakya";
+				TargetAttributes = {
+					11453047209838FC006DFE00 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 11453043209838FC006DFE00 /* Build configuration list for PBXProject "test_RedisClient" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1145303F209838FC006DFE00;
+			productRefGroup = 11453049209838FC006DFE00 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11453047209838FC006DFE00 /* test_RedisClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11453044209838FC006DFE00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1145307D2098392E006DFE00 /* dict.c in Sources */,
+				1145307C2098392E006DFE00 /* async.c in Sources */,
+				1145308A2098392E006DFE00 /* read.c in Sources */,
+				1145304C209838FC006DFE00 /* main.cpp in Sources */,
+				1145308B2098392E006DFE00 /* sds.c in Sources */,
+				114530892098392E006DFE00 /* net.c in Sources */,
+				114530872098392E006DFE00 /* hiredis.c in Sources */,
+				114530882098392E006DFE00 /* Makefile in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1145304D209838FC006DFE00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1145304E209838FC006DFE00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		11453050209838FC006DFE00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F38H382JLK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		11453051209838FC006DFE00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F38H382JLK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11453043209838FC006DFE00 /* Build configuration list for PBXProject "test_RedisClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1145304D209838FC006DFE00 /* Debug */,
+				1145304E209838FC006DFE00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1145304F209838FC006DFE00 /* Build configuration list for PBXNativeTarget "test_RedisClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11453050209838FC006DFE00 /* Debug */,
+				11453051209838FC006DFE00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 11453040209838FC006DFE00 /* Project object */;
+}
