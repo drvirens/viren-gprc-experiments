@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>test_RedisClient.xcscheme</key>
+		<key>test_ReadCSV.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>11453047209838FC006DFE00</key>
+		<key>111DF1E520997DD1002306B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

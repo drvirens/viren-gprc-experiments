@@ -12,6 +12,12 @@
 #include "async.h"
 #include "macosx.h"
 
+#include "CSVFileLineTokenizer.hpp"
+#include "CSVFileReader.hpp"
+#include "CSVFileLineTokenizer.hpp"
+
+
+
 static void connectCallback(const redisAsyncContext* c, int status) {
   if (status != REDIS_OK) {
     printf("Error: %s\n", c->errstr);
@@ -92,7 +98,7 @@ static void fireGeoRadiusQuery(redisAsyncContext* c,
   
   int err = redisAsyncCommand(c, &geoRadiusCommandCallback, (char*)"privData", cmd);
   if (REDIS_OK == err) {
-    printf(" georadius fired successfully");
+    printf(" georadius fired successfully\n");
   }
 
 }
@@ -165,7 +171,7 @@ static void addGeoLocations(redisAsyncContext* c,
   
   int err = redisAsyncCommand(c, &geoAddCommandCallback, privData, cmd);
   if (REDIS_OK == err) {
-    printf("will insert geoadd shortly");
+    printf("will insert geoadd shortly\n");
   }
 }
 
@@ -174,6 +180,30 @@ static void addManyGeoLocations(redisAsyncContext* c) {
     addGeoLocations(c, "Sicily", "13.361389", "38.115556", "Palermo", ++index);
     addGeoLocations(c, "Sicily", "15.087269", "37.502669", "Catania", ++index);
 }
+
+
+
+class RedisGeoAdder : public CSVFileLineTokenizer {
+ public:
+    RedisGeoAdder(redisAsyncContext* c) : context_(c), index_(0), rediskey_("starbucks") {}
+    virtual void didReadOneEntry(std::string& longitude, std::string& latitude, std::string& member) const;
+ private:
+    redisAsyncContext* context_;
+    int index_;
+    const std::string rediskey_;
+};
+void RedisGeoAdder::didReadOneEntry(std::string& longitude, std::string& latitude, std::string& member) const {
+    addGeoLocations(context_, rediskey_.c_str(), longitude.c_str(), latitude.c_str(), member.c_str(), index_);
+}
+
+static void addStarbucks(redisAsyncContext* c) {
+    const RedisGeoAdder tokenizer(c);
+    //const std::string csvfile = "starbucks_us_locations_original.csv";
+    const std::string csvfile = "starbucks_us_locations_test.csv";
+    CSVFileReader csv(tokenizer, csvfile);
+    csv.read();
+}
+
 
 int main(int argc, const char * argv[]) {
   std::cout << "Hello, World!\n";
@@ -195,13 +225,12 @@ int main(int argc, const char * argv[]) {
     redisAsyncSetConnectCallback(c, &connectCallback);
     redisAsyncSetDisconnectCallback(c, &disconnectCallback);
   
-    redisAsyncCommand(c, &setCommandCallback, (char*)"start-1", "SET key viren");
-    redisAsyncCommand(c, &getCommandCallback, (char*)"end-1", "GET key");
-  
-    //redisAsyncCommand(c, &geoAddCommandCallback, (char*)"geoadd", "GEOADD Pune -122.431297 37.773972 \"VirenS\"");
-  
-    addManyGeoLocations(c);
+//    redisAsyncCommand(c, &setCommandCallback, (char*)"start-1", "SET key viren");
+//    redisAsyncCommand(c, &getCommandCallback, (char*)"end-1", "GET key");
+//    redisAsyncCommand(c, &geoAddCommandCallback, (char*)"geoadd", "GEOADD Pune -122.431297 37.773972 \"VirenS\"");
+//    addManyGeoLocations(c);
     
+    addStarbucks(c);
   }
   CFRunLoopRun();
   return 0;

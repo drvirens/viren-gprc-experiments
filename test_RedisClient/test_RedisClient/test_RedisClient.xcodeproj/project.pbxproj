@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111DF201209995B7002306B9 /* CSVFileLineTokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 111DF1FF209995B7002306B9 /* CSVFileLineTokenizer.cpp */; };
+		111DF202209995B7002306B9 /* CSVFileReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 111DF200209995B7002306B9 /* CSVFileReader.cpp */; };
 		1145304C209838FC006DFE00 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1145304B209838FC006DFE00 /* main.cpp */; };
 		1145307C2098392E006DFE00 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = 1145305E2098392E006DFE00 /* async.c */; };
 		1145307D2098392E006DFE00 /* dict.c in Sources */ = {isa = PBXBuildFile; fileRef = 114530622098392E006DFE00 /* dict.c */; };
@@ -31,6 +33,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		111DF1FC209995B7002306B9 /* CSVFileLineTokenizer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CSVFileLineTokenizer.hpp; sourceTree = "<group>"; };
+		111DF1FD209995B7002306B9 /* CSVFileReader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CSVFileReader.hpp; sourceTree = "<group>"; };
+		111DF1FE209995B7002306B9 /* CSVFileReaderListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CSVFileReaderListener.hpp; sourceTree = "<group>"; };
+		111DF1FF209995B7002306B9 /* CSVFileLineTokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSVFileLineTokenizer.cpp; sourceTree = "<group>"; };
+		111DF200209995B7002306B9 /* CSVFileReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSVFileReader.cpp; sourceTree = "<group>"; };
 		11453048209838FC006DFE00 /* test_RedisClient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test_RedisClient; sourceTree = BUILT_PRODUCTS_DIR; };
 		1145304B209838FC006DFE00 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		114530532098392E006DFE00 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -91,6 +98,11 @@
 		1145304A209838FC006DFE00 /* test_RedisClient */ = {
 			isa = PBXGroup;
 			children = (
+				111DF1FF209995B7002306B9 /* CSVFileLineTokenizer.cpp */,
+				111DF1FC209995B7002306B9 /* CSVFileLineTokenizer.hpp */,
+				111DF200209995B7002306B9 /* CSVFileReader.cpp */,
+				111DF1FD209995B7002306B9 /* CSVFileReader.hpp */,
+				111DF1FE209995B7002306B9 /* CSVFileReaderListener.hpp */,
 				114530522098392E006DFE00 /* hiredis-0.13.3 */,
 				1145304B209838FC006DFE00 /* main.cpp */,
 			);
@@ -200,10 +212,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1145307D2098392E006DFE00 /* dict.c in Sources */,
+				111DF202209995B7002306B9 /* CSVFileReader.cpp in Sources */,
 				1145307C2098392E006DFE00 /* async.c in Sources */,
 				1145308A2098392E006DFE00 /* read.c in Sources */,
 				1145304C209838FC006DFE00 /* main.cpp in Sources */,
 				1145308B2098392E006DFE00 /* sds.c in Sources */,
+				111DF201209995B7002306B9 /* CSVFileLineTokenizer.cpp in Sources */,
 				114530892098392E006DFE00 /* net.c in Sources */,
 				114530872098392E006DFE00 /* hiredis.c in Sources */,
 				114530882098392E006DFE00 /* Makefile in Sources */,
