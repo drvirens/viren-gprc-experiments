@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "test_RedisClient/main.cpp"
-            timestampString = "546851726.013003"
+            timestampString = "546928964.4954031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "getCommandCallback(redisAsyncContext* c, void* r, void* privdata)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "test_RedisClient/main.cpp"
-            timestampString = "546851726.0138071"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "setCommandCallback(redisAsyncContext* c, void* r, void* privdata)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "geoRadiusCommandCallback(redisAsyncContext* c, void* r, void* privdata)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

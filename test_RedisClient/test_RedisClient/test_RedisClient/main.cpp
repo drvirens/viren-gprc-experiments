@@ -27,6 +27,7 @@ static void disconnectCallback(const redisAsyncContext* c, int status) {
   CFRunLoopStop(CFRunLoopGetCurrent());
   printf("Dis-fucking-Connected with redis hell yeah\n");
 }
+#pragma mark --
 static void getCommandCallback(redisAsyncContext* c, void* r, void* privdata) {
   redisReply* reply = (redisReply*)r;
   if (!reply) {
@@ -43,6 +44,135 @@ static void setCommandCallback(redisAsyncContext* c, void* r, void* privdata) {
   }
   printf("argv[%s]: %s\n", (char*)privdata, reply->str);
   //redisAsyncDisconnect(c);
+}
+
+
+
+#pragma mark -- georadius
+static void geoRadiusCommandCallback(redisAsyncContext* c, void* r, void* privdata) {
+  redisReply* reply = (redisReply*)r;
+  if (!reply) {
+    return;
+  }
+  int type = reply->type;
+  if (type == REDIS_REPLY_INTEGER) {
+    printf("argv[%s]: %lld inserted\n", (char*)privdata, reply->integer);
+  } else {
+    printf("argv[%s]: %s\n", (char*)privdata, reply->str);
+  }
+  //redisAsyncDisconnect(c);
+}
+
+static void fireGeoRadiusQuery(redisAsyncContext* c,
+                                const char* key,
+                                const char* longitude,
+                                const char* latitude,
+                                const char* radius,
+                                const char* unit) {
+    //redis> GEORADIUS Sicily 15 37 200 km
+  static const int kSpaceSize = 1;
+  static const char* kGeoRadius = "GEORADIUS";
+  
+  //
+  //GEOADD    Sicily 13.361389 38.115556 "Palermo"
+  //GEORADIUS Sicily 15        37        200       km
+  //
+  size_t len =
+              strlen(kGeoRadius)    + kSpaceSize +
+              strlen(key)           + kSpaceSize +
+              strlen(longitude)     + kSpaceSize +
+              strlen(latitude)      + kSpaceSize +
+              strlen(radius)        + kSpaceSize +
+              strlen(unit)          + kSpaceSize;
+  char* cmd = (char*)malloc(len);
+  int ret = snprintf(cmd, len, "%s %s %s %s %s %s", kGeoRadius, key, longitude, latitude, radius, unit);
+  if (ret == len) { //expected
+    printf("stuffed into geoadd");
+  }
+  
+  int err = redisAsyncCommand(c, &geoRadiusCommandCallback, (char*)"privData", cmd);
+  if (REDIS_OK == err) {
+    printf(" georadius fired successfully");
+  }
+
+}
+
+
+#pragma mark -- geoadd
+
+static void geoAddCommandCallback(redisAsyncContext* c, void* r, void* privdata) {
+  redisReply* reply = (redisReply*)r;
+  if (!reply) {
+    return;
+  }
+  int type = reply->type;
+  if (type == REDIS_REPLY_INTEGER) {
+    printf("argv[%s]: %lld inserted\n", (char*)privdata, reply->integer);
+  } else {
+    printf("argv[%s]: %s\n", (char*)privdata, reply->str);
+  }
+  
+  char* strindex = (char*)privdata;
+  int index = atoi(strindex);
+  if (index >= 2) {
+    fireGeoRadiusQuery(c, "Sicily", "15", "37", "200", "km");
+  }
+}
+
+
+/*
+GEOADD key longitude latitude member [longitude latitude member ...]
+Time complexity: O(log(N)) for each item added, where N is the number of elements in the sorted set.
+
+GEOADD Sicily 13.361389 38.115556 "Palermo" 15.087269 37.502669 "Catania"
+(integer) 2
+redis> GEODIST Sicily Palermo Catania
+"166274.1516"
+redis> GEORADIUS Sicily 15 37 100 km
+1) "Catania"
+redis> GEORADIUS Sicily 15 37 200 km
+1) "Palermo"
+2) "Catania"
+*/
+
+static void addGeoLocations(redisAsyncContext* c,
+        const char* key,
+        const char* longitude,
+        const char* latitude,
+        const char* member,
+        const int index) {
+  static const int kSpaceSize = 1;
+  static const char* kGeoAdd = "GEOADD";
+  
+  //
+  //GEOADD Sicily 13.361389 38.115556 "Palermo"
+  //
+  size_t len =
+              strlen(kGeoAdd) + kSpaceSize +
+              strlen(key) + kSpaceSize +
+              strlen(longitude) + kSpaceSize +
+              strlen(latitude) + kSpaceSize +
+              strlen(member) + 2*kSpaceSize;
+  char* cmd = (char*)malloc(len);
+  int ret = snprintf(cmd, len, "%s %s %s %s %s", kGeoAdd, key, longitude, latitude, member);
+  if (ret == len) { //expected
+    printf("stuffed into geoadd");
+  }
+  
+  size_t ll = sizeof("") + sizeof (index);
+  char* privData = (char*)malloc( ll + 1 + 1);
+  snprintf(privData, ll, "%s%d", "", index);
+  
+  int err = redisAsyncCommand(c, &geoAddCommandCallback, privData, cmd);
+  if (REDIS_OK == err) {
+    printf("will insert geoadd shortly");
+  }
+}
+
+static void addManyGeoLocations(redisAsyncContext* c) {
+    int index = 0;
+    addGeoLocations(c, "Sicily", "13.361389", "38.115556", "Palermo", ++index);
+    addGeoLocations(c, "Sicily", "15.087269", "37.502669", "Catania", ++index);
 }
 
 int main(int argc, const char * argv[]) {
@@ -65,8 +195,12 @@ int main(int argc, const char * argv[]) {
     redisAsyncSetConnectCallback(c, &connectCallback);
     redisAsyncSetDisconnectCallback(c, &disconnectCallback);
   
-    redisAsyncCommand(c, &setCommandCallback, (char*)"SET key viren", "SET key viren");
+    redisAsyncCommand(c, &setCommandCallback, (char*)"start-1", "SET key viren");
     redisAsyncCommand(c, &getCommandCallback, (char*)"end-1", "GET key");
+  
+    //redisAsyncCommand(c, &geoAddCommandCallback, (char*)"geoadd", "GEOADD Pune -122.431297 37.773972 \"VirenS\"");
+  
+    addManyGeoLocations(c);
     
   }
   CFRunLoopRun();
