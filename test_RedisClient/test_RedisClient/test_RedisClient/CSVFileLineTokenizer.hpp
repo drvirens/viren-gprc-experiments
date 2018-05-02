@@ -20,6 +20,7 @@ class CSVFileLineTokenizer : public CSVFileReaderListener {
     virtual void didReadOneEntry(std::string& longitude, std::string& latitude, std::string& member) const;
     
  private:
+    void tokenize(std::string& longitude, std::string& latitude, std::string& member) const;
     void parseLine(const std::string& line, int lineNumber) const;
 };
 

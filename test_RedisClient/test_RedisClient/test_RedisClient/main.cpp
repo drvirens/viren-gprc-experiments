@@ -16,14 +16,17 @@
 #include "CSVFileReader.hpp"
 #include "CSVFileLineTokenizer.hpp"
 
-
+static void addStarbucks(redisAsyncContext* c);
 
 static void connectCallback(const redisAsyncContext* c, int status) {
   if (status != REDIS_OK) {
     printf("Error: %s\n", c->errstr);
     return;
   }
-  printf("Connected with redis fuck yeah\n");
+  printf("Connected with redis fuck yeah------\n");
+  
+  
+  addStarbucks((redisAsyncContext*)c);
 }
 static void disconnectCallback(const redisAsyncContext* c, int status) {
   if (status != REDIS_OK) {
@@ -62,9 +65,19 @@ static void geoRadiusCommandCallback(redisAsyncContext* c, void* r, void* privda
   }
   int type = reply->type;
   if (type == REDIS_REPLY_INTEGER) {
-    printf("argv[%s]: %lld inserted\n", (char*)privdata, reply->integer);
+    printf("REDIS_REPLY_INTEGER: argv[%s]: %lld inserted\n", (char*)privdata, reply->integer);
+  } else if (type == REDIS_REPLY_ARRAY) {
+      printf("REDIS_REPLY_ARRAY: argv[%s]: got %zu elements, \n", (char*)privdata, reply->elements);
+      size_t elements = reply->elements;
+      for (size_t i = 0; i < elements; ++i) {
+        redisReply* ereply = (redisReply*)reply->element[i];
+        if (ereply && ereply->type == REDIS_REPLY_STRING) {
+            printf("%ld) %s\n", i+1, ereply->str);
+        }
+      }
+      printf("%ld results found\n", elements);
   } else {
-    printf("argv[%s]: %s\n", (char*)privdata, reply->str);
+    printf("ERROR ======>>> argv[%s]: %s\n", (char*)privdata, reply->str);
   }
   //redisAsyncDisconnect(c);
 }
@@ -99,6 +112,8 @@ static void fireGeoRadiusQuery(redisAsyncContext* c,
   int err = redisAsyncCommand(c, &geoRadiusCommandCallback, (char*)"privData", cmd);
   if (REDIS_OK == err) {
     printf(" georadius fired successfully\n");
+  } else if (REDIS_ERR == err) {
+    printf(" ERR---> georadius failed\n");
   }
 
 }
@@ -114,14 +129,14 @@ static void geoAddCommandCallback(redisAsyncContext* c, void* r, void* privdata)
   int type = reply->type;
   if (type == REDIS_REPLY_INTEGER) {
     printf("argv[%s]: %lld inserted\n", (char*)privdata, reply->integer);
-  } else {
-    printf("argv[%s]: %s\n", (char*)privdata, reply->str);
+  } else if (type == REDIS_REPLY_ERROR) {
+    printf("ERROR : GEOADD-------argv[%s]: %s\n", (char*)privdata, reply->str);
   }
   
   char* strindex = (char*)privdata;
   int index = atoi(strindex);
-  if (index >= 2) {
-    fireGeoRadiusQuery(c, "Sicily", "15", "37", "200", "km");
+  if (index == 6440) {
+    fireGeoRadiusQuery(c, "starbucks", "-122.407694", "37.784324", "1000", "m");
   }
 }
 
@@ -171,7 +186,9 @@ static void addGeoLocations(redisAsyncContext* c,
   
   int err = redisAsyncCommand(c, &geoAddCommandCallback, privData, cmd);
   if (REDIS_OK == err) {
-    printf("will insert geoadd shortly\n");
+    //printf("will insert geoadd shortly\n");
+  } else if (REDIS_ERR == err) {
+    printf("ERROR : GEOADD------- should reconnect\n");
   }
 }
 
@@ -189,17 +206,18 @@ class RedisGeoAdder : public CSVFileLineTokenizer {
     virtual void didReadOneEntry(std::string& longitude, std::string& latitude, std::string& member) const;
  private:
     redisAsyncContext* context_;
-    int index_;
+    mutable int index_;
     const std::string rediskey_;
 };
 void RedisGeoAdder::didReadOneEntry(std::string& longitude, std::string& latitude, std::string& member) const {
-    addGeoLocations(context_, rediskey_.c_str(), longitude.c_str(), latitude.c_str(), member.c_str(), index_);
+    addGeoLocations(context_, rediskey_.c_str(), longitude.c_str(), latitude.c_str(), member.c_str(), ++index_);
 }
 
 static void addStarbucks(redisAsyncContext* c) {
     const RedisGeoAdder tokenizer(c);
-    //const std::string csvfile = "starbucks_us_locations_original.csv";
-    const std::string csvfile = "starbucks_us_locations_test.csv";
+    const std::string csvfile = "starbucks_us_locations_original.csv";
+    //const std::string csvfile = "starbucks_us_locations_test.csv";
+    //const std::string csvfile = "starbucks_us_locations.csv";
     CSVFileReader csv(tokenizer, csvfile);
     csv.read();
 }
@@ -230,7 +248,7 @@ int main(int argc, const char * argv[]) {
 //    redisAsyncCommand(c, &geoAddCommandCallback, (char*)"geoadd", "GEOADD Pune -122.431297 37.773972 \"VirenS\"");
 //    addManyGeoLocations(c);
     
-    addStarbucks(c);
+    
   }
   CFRunLoopRun();
   return 0;

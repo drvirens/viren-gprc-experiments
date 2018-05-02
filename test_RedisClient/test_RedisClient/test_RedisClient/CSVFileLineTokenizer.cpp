@@ -31,9 +31,20 @@ void CSVFileLineTokenizer::didReadLine(const std::string& line, int lineNumber) 
 
 
 void CSVFileLineTokenizer::didReadOneEntry(std::string& longitude, std::string& latitude, std::string& member) const {
-//#if __DEBUG_ALL__
+}
+
+void CSVFileLineTokenizer::tokenize(std::string& longitude, std::string& latitude, std::string& member) const {
+#if __DEBUG_ALL__
     std::cout << "longitude: [" << longitude << "], latitude: [" << latitude << "], member: [" << member  << "]" << std::endl;
-//#endif
+#endif
+    size_t lastspace = member.find_last_of(' ');
+    const char* ptrlastspace = member.c_str();
+    char* start = (char*)&ptrlastspace[lastspace];
+    std::string lastword = start;
+    
+
+    didReadOneEntry(longitude, latitude, lastword);
+
 }
 
 void CSVFileLineTokenizer::parseLine(const std::string& line, int lineNumber) const {
@@ -54,7 +65,7 @@ void CSVFileLineTokenizer::parseLine(const std::string& line, int lineNumber) co
             std::stringstream memberstr;
             memberstr << lineNumber << ":" << token;
             member = memberstr.str();
-            didReadOneEntry(longitude, latitude, member);
+            tokenize(longitude, latitude, member);
         }
         index++;
     }

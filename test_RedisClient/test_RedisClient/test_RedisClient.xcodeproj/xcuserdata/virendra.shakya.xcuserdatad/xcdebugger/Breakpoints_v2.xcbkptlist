@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "test_RedisClient/main.cpp"
-            timestampString = "546937008.247949"
+            timestampString = "546944454.619398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "RedisGeoAdder::didReadOneEntry(std::string&amp; longitude, std::string&amp; latitude, std::string&amp; member)"
-            landmarkType = "7">
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "geoAddCommandCallback(redisAsyncContext* c, void* r, void* privdata)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

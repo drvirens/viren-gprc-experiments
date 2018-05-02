@@ -38,6 +38,9 @@
 		111DF1FE209995B7002306B9 /* CSVFileReaderListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CSVFileReaderListener.hpp; sourceTree = "<group>"; };
 		111DF1FF209995B7002306B9 /* CSVFileLineTokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSVFileLineTokenizer.cpp; sourceTree = "<group>"; };
 		111DF200209995B7002306B9 /* CSVFileReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSVFileReader.cpp; sourceTree = "<group>"; };
+		111DF2032099A8A5002306B9 /* starbucks_us_locations_original.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = starbucks_us_locations_original.csv; sourceTree = "<group>"; };
+		111DF2042099A8A5002306B9 /* starbucks_us_locations_test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = starbucks_us_locations_test.csv; sourceTree = "<group>"; };
+		111DF2052099AA41002306B9 /* starbucks_us_locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = starbucks_us_locations.csv; sourceTree = "<group>"; };
 		11453048209838FC006DFE00 /* test_RedisClient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test_RedisClient; sourceTree = BUILT_PRODUCTS_DIR; };
 		1145304B209838FC006DFE00 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		114530532098392E006DFE00 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -98,6 +101,9 @@
 		1145304A209838FC006DFE00 /* test_RedisClient */ = {
 			isa = PBXGroup;
 			children = (
+				111DF2052099AA41002306B9 /* starbucks_us_locations.csv */,
+				111DF2032099A8A5002306B9 /* starbucks_us_locations_original.csv */,
+				111DF2042099A8A5002306B9 /* starbucks_us_locations_test.csv */,
 				111DF1FF209995B7002306B9 /* CSVFileLineTokenizer.cpp */,
 				111DF1FC209995B7002306B9 /* CSVFileLineTokenizer.hpp */,
 				111DF200209995B7002306B9 /* CSVFileReader.cpp */,
